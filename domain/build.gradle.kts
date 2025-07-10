@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.android.dagger.hilt)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
 }
 
 android {
-    namespace = "com.prilepskiy.common"
+    namespace = "com.prilepskiy.domain"
     compileSdk = 35
 
     defaultConfig {
@@ -42,6 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    kapt(libs.dagger.hilt.compiler)
-    implementation(libs.dagger.hilt)
 }
