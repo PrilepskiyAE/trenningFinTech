@@ -5,8 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.prilepskiy.treningfintech.navigation.mainNavigate
 import com.prilepskiy.treningfintech.navigation.mainRoute
-import com.prilepskiy.treningfintech.navigation.mainScreen
+import com.prilepskiy.treningfintech.navigation.navigationToDetail
 
 @Composable
 fun RootScreen(
@@ -19,6 +20,10 @@ fun RootScreen(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        mainScreen()
+        mainNavigate(
+            goToUser = { userId ->
+                rootNavController.navigationToDetail(userId)
+            },
+            popBack = { rootNavController.popBackStack() })
     }
 }
