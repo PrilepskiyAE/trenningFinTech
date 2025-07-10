@@ -12,10 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.prilepskiy.presentation.uiComponent.TextComponent
 import com.prilepskiy.presentation.mainScreen.viewModel.MainIntent
 import com.prilepskiy.presentation.mainScreen.viewModel.MainState
 import com.prilepskiy.presentation.mainScreen.viewModel.MainViewModel
+import com.prilepskiy.presentation.uiComponent.TextComponent
 
 @Composable
 fun MainScreen(goToUser: (Int) -> Unit, viewModel: MainViewModel = hiltViewModel()) {

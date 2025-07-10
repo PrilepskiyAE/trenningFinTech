@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
-import com.prilepskiy.treningfintech.ui.theme.TreningFinTechTheme
 import com.prilepskiy.treningfintech.ui.screen.RootScreen
+import com.prilepskiy.treningfintech.ui.theme.TreningFinTechTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
