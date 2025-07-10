@@ -10,7 +10,7 @@ import com.prilepskiy.presentation.mainScreen.ui.screen.MainScreen
 
 const val mainRoute = "main_route"
 const val detailRoute = "detail_route"
-fun NavGraphBuilder.mainNavigate(goToUser: (Int) -> Unit,popBack:()->Unit) {
+fun NavGraphBuilder.mainNavigate(goToUser: (Int) -> Unit, popBack: () -> Unit) {
     composable(route = mainRoute) {
         MainScreen(goToUser = goToUser)
     }
@@ -18,12 +18,12 @@ fun NavGraphBuilder.mainNavigate(goToUser: (Int) -> Unit,popBack:()->Unit) {
         route = "$detailRoute/{userId}",
         arguments = listOf(navArgument("userId") { type = NavType.IntType })
     ) { navBackStack ->
-        DetailScreen(navBackStack.arguments?.getInt("userId") ?: 0){
+        DetailScreen(navBackStack.arguments?.getInt("userId") ?: 0) {
             popBack.invoke()
         }
     }
 }
 
-fun NavController.navigationToDetail(userId: Int){
+fun NavController.navigationToDetail(userId: Int) {
     this.navigate("$detailRoute/${userId}")
 }
