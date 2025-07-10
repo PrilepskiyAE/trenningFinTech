@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import com.google.gson.Gson
+import com.prilepskiy.common.BASE_URL
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -44,13 +45,13 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.BASE_URL)
+        .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
 
     @Provides
     @Singleton
-    fun provideBonusesService(retrofit: Retrofit): UserService =
+    fun provideUserService(retrofit: Retrofit): UserService =
         retrofit.create(UserService::class.java)
 
 }
