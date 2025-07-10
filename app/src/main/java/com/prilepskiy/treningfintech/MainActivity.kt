@@ -5,10 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.prilepskiy.treningfintech.ui.theme.TreningFinTechTheme
 import com.prilepskiy.treningfintech.ui.screen.RootScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,21 +20,5 @@ class MainActivity : ComponentActivity() {
                 RootScreen(modifier = Modifier.fillMaxSize())
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TreningFinTechTheme {
-        Greeting("Android")
     }
 }

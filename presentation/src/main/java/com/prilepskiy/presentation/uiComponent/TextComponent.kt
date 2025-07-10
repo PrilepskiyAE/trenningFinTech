@@ -1,4 +1,4 @@
-package com.prilepskiy.presentation.mainScreen.ui.uiComponent
+package com.prilepskiy.presentation.uiComponent
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

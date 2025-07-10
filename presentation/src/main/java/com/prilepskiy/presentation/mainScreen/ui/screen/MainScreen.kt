@@ -12,13 +12,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.prilepskiy.presentation.mainScreen.ui.uiComponent.TextComponent
+import com.prilepskiy.presentation.uiComponent.TextComponent
 import com.prilepskiy.presentation.mainScreen.viewModel.MainIntent
 import com.prilepskiy.presentation.mainScreen.viewModel.MainState
 import com.prilepskiy.presentation.mainScreen.viewModel.MainViewModel
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
+fun MainScreen(goToUser: (Int) -> Unit, viewModel: MainViewModel = hiltViewModel()) {
     val state = viewModel.viewState
 
     if (state.isLoading) {
@@ -26,22 +26,32 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
     } else {
         MainScreen(
             state = state,
-            onClick = { viewModel.onIntent(MainIntent.OnClick) }
+            onClick = { viewModel.onIntent(MainIntent.OnClick) },
+            goToUser
         )
     }
-
 
 }
 
 @Composable
-private fun MainScreen(state: MainState, onClick: () -> Unit) {
+private fun MainScreen(state: MainState, onClick: () -> Unit, goToUser: (Int) -> Unit) {
     Box(contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             TextComponent(modifier = Modifier, text = state.text)
-            Button(modifier = Modifier
-                .fillMaxWidth()
-                .padding(15.dp), onClick = onClick) {
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp), onClick = onClick
+            ) {
                 Text("OK")
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp),
+                onClick = { goToUser(99) }) {
+                Text("Навигате")
             }
         }
 
