@@ -8,4 +8,5 @@ plugins {
     alias(libs.plugins.android.serialization) apply false
     alias(libs.plugins.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlin.kapt) apply false
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
 }

@@ -1,5 +1,6 @@
 package com.prilepskiy.presentation.mainScreen.viewModel
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.prilepskiy.common.subscribe
 import com.prilepskiy.domain.usecase.ClearUsersUseCase
@@ -19,6 +20,9 @@ class MainViewModel @Inject constructor(
     override var reducer: Reducer<MainAction, MainState> = mainReducer
 
     override fun initState(): MainState = MainState()
+    init {
+        getAllUser(isNetwork = false)
+    }
 
     override fun handleIntent(intent: MainIntent) {
         when (intent) {
@@ -41,9 +45,11 @@ class MainViewModel @Inject constructor(
             viewModelScope, onStart = {
                 onAction(MainAction.OnLoading(true))
             }, success = {
+                Log.d("TAG999", "getAllUser: $it")
                 onAction(MainAction.GetUser(it))
             },
             error = {
+                Log.d("TAG999", "getAllUser: ${it.message}")
                 onAction(MainAction.OnError(it.message))
             }
         )

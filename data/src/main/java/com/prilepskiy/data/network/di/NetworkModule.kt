@@ -12,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
-import com.prilepskiy.data.BuildConfig
 import com.prilepskiy.data.network.apiservice.UserService
 
 @Module
@@ -22,7 +21,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun providesLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
     @Provides
     @Singleton

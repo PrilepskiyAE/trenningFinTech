@@ -6,9 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface UserService {
-    @GET("api")
-    suspend fun getUser(
-        @Query("limit") limit: Int = 50,
-    ): SmartResponse<UserResponse>
+    @GET("api/?results=50")
+    suspend fun getUser(): SmartResponse<UserResponse>
 
 }

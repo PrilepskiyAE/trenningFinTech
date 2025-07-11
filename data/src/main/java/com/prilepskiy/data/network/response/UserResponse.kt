@@ -45,7 +45,7 @@ data class Location(
     @SerializedName("country")
     val country: String?,
     @SerializedName("postcode")
-    val postcode: Int?,
+    val postcode: String?,
     @SerializedName("coordinates")
     val coordinates: Coordinates?,
     @SerializedName("timezone")
@@ -137,7 +137,7 @@ return UserEntity(
         city = this.location?.city?: EMPTY_STRING,
         state = this.location?.state?: EMPTY_STRING,
         country = this.location?.country?: EMPTY_STRING,
-        postcode = this.location?.postcode?: DEFAULT_INT,
+        postcode = this.location?.postcode?:  EMPTY_STRING,
         latitude = this.location?.coordinates?.latitude?: EMPTY_STRING,
         longitude = this.location?.coordinates?.longitude?: EMPTY_STRING,
         offset = this.location?.timezone?.offset?: EMPTY_STRING,

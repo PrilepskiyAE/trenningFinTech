@@ -17,7 +17,7 @@ data class UiUserModel(
     val city: String = EMPTY_STRING,
     val state: String = EMPTY_STRING,
     val country: String = EMPTY_STRING,
-    val postcode: Int = DEFAULT_INT,
+    val postcode: String = EMPTY_STRING,
     val latitude: String = EMPTY_STRING,
     val longitude: String = EMPTY_STRING,
     val offset: String = EMPTY_STRING,
