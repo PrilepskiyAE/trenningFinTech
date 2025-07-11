@@ -1,15 +1,12 @@
-package com.prilepskiy.data.database.entity
+package com.prilepskiy.domain.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.prilepskiy.common.DEFAULT_INT
 import com.prilepskiy.common.DEFAULT_LONG
 import com.prilepskiy.common.EMPTY_STRING
+import com.prilepskiy.data.database.entity.UserEntity
 
+data class UiUserModel(
 
-@Entity
-data class UserEntity(
-    @PrimaryKey(autoGenerate = true)
     val userId: Long = DEFAULT_LONG,
     val gender: String = EMPTY_STRING,
     val title: String = EMPTY_STRING,
@@ -46,3 +43,42 @@ data class UserEntity(
     val thumbnail: String = EMPTY_STRING,
     val nat: String = EMPTY_STRING
 )
+
+fun UserEntity.toModel(): UiUserModel {
+    return  UiUserModel(
+        gender = this.gender,
+        title = this.title,
+        first = this.first,
+        last = this.last,
+        streetNumber = this.streetNumber,
+        streetName = this.streetName,
+        city = this.city,
+        state = this.state,
+        country = this.country,
+        postcode = this.postcode,
+        latitude = this.latitude,
+        longitude = this.longitude,
+        offset = this.offset,
+        description = this.description,
+        email = this.email,
+        uuid = this.uuid,
+        username = this.username,
+        password = this.password,
+        salt = this.salt,
+        md5 = this.md5,
+        sha1 = this.sha1,
+        sha256 =this.sha256,
+        dobDate = this.dobDate,
+        dobAge = this.dobAge,
+        registeredDate = this.registeredDate,
+        registeredAge = this.registeredAge,
+        phone = this.phone,
+        cell = this.cell,
+        nameId = this.nameId,
+        valueId = this.valueId,
+        large = this.large,
+        medium = this.medium,
+        thumbnail = this.thumbnail,
+        nat = this.nat
+    )
+}

@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.dagger.hilt)
     alias(libs.plugins.android.serialization)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -28,11 +29,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "2.2.0"
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 

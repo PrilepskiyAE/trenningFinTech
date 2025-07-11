@@ -9,3 +9,5 @@ const val EMPTY_STRING = ""
 const val VERSION_DATABASE = 1
 
 const val DATABAS_ENAME = "UserDataBase"
+
+const val BASE_URL = "https://randomuser.me/"

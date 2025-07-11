@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.dagger.hilt)
     alias(libs.plugins.android.serialization)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -24,7 +25,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField( "String", "BASE_URL", "https://randomuser.me/")
+
         }
         debug {
             isMinifyEnabled = false
@@ -32,15 +33,18 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField( "String", "BASE_URL", "https://randomuser.me/")
+
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "2.2.0"
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -54,7 +58,7 @@ dependencies {
     implementation(libs.dagger.hilt)
     implementation(libs.room.roomKtx)
     implementation(libs.room.roomRuntime)
-    kapt(libs.room.roomKaptCompiler)
+    ksp(libs.room.roomKaptCompiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.coil.compose)
