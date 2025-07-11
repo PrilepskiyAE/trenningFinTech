@@ -1,6 +1,5 @@
 package com.prilepskiy.domain.usecase
 
-import com.prilepskiy.common.CoroutineDispatcherProvider
 import com.prilepskiy.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
