@@ -1,8 +1,19 @@
 package com.prilepskiy.domain.usecase
 
-//import com.prilepskiy.domain.model.UiUserModel
-//import kotlinx.coroutines.flow.Flow
+import com.prilepskiy.common.CoroutineDispatcherProvider
+import com.prilepskiy.data.repository.UserRepository
+import com.prilepskiy.domain.model.UiUserModel
+import com.prilepskiy.domain.model.toModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
-//interface GetAllUserUseCase {
-//    operator  fun invoke(): Flow<List<UiUserModel>>
-//}
+@Singleton
+class  GetAllUserUseCase@Inject constructor(private val repository: UserRepository, private val dispatcher: CoroutineDispatcherProvider)  {
+    operator fun invoke(isNetwork:Boolean): Flow<List<UiUserModel>> {
+        return repository.getAllUser(isNetwork).map { userEntities -> userEntities.map { it.toModel() } }.
+        flowOn(dispatcher.io)
+    }
+}

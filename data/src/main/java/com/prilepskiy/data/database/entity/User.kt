@@ -6,6 +6,7 @@ import com.prilepskiy.common.DEFAULT_INT
 import com.prilepskiy.common.DEFAULT_LONG
 import com.prilepskiy.common.EMPTY_STRING
 
+
 @Entity
 data class UserEntity(
     @PrimaryKey(autoGenerate = true)
