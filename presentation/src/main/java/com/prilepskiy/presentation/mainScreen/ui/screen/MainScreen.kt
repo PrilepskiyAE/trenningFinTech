@@ -52,7 +52,6 @@ fun MainScreen(goToUser: (Int) -> Unit, viewModel: MainViewModel = hiltViewModel
             goToUser
         )
     }
-
 }
 
 @Composable
@@ -77,7 +76,6 @@ private fun MainScreen(state: MainState, onClickClear: () -> Unit, goToUser: (In
 @Composable
 private fun ItemUserComponent(user:UiUserModel,goToUser: (Int) -> Unit){
     Card(onClick = {
-        Log.d("TAG999", "ItemUserComponent: ${user.userId}")
         goToUser.invoke(user.userId.toInt())
     }, modifier = Modifier
         .fillMaxWidth()
