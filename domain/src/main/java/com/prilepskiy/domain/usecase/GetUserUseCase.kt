@@ -1,6 +1,5 @@
 package com.prilepskiy.domain.usecase
 
-import com.prilepskiy.common.CoroutineDispatcherProvider
 import com.prilepskiy.data.repository.UserRepository
 import com.prilepskiy.domain.model.UiUserModel
 import com.prilepskiy.domain.model.toModel

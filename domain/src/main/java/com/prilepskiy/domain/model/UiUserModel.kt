@@ -46,6 +46,7 @@ data class UiUserModel(
 
 fun UserEntity.toModel(): UiUserModel {
     return  UiUserModel(
+        userId = this.userId,
         gender = this.gender,
         title = this.title,
         first = this.first,
